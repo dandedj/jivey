@@ -1,0 +1,3 @@
+Jivey is a Ruby library used to interact with the Jive community software packages via the REST / SOAP APIS. 
+
+This version was built to interact with 4.0.x. 
