@@ -1,0 +1,20 @@
+# -*- encoding: utf-8 -*-
+lib = File.expand_path('../lib/', __FILE__)
+$:.unshift lib unless $:.include?(lib)
+ 
+require 'bundler/version'
+ 
+Gem::Specification.new do |s|
+  s.name        = "jivey"
+  s.version     = "0.9"
+  s.platform    = Gem::Platform::RUBY
+  s.authors     = ["David Dandeneau"]
+  s.email       = ["davedandeneau@gmail.com"]
+  s.homepage    = "http://github.com/dandedj/jivey"
+  s.summary     = "Jive rest interface for Ruby"
+  s.description = "Jive rest interface for Ruby"
+ 
+  s.files        = Dir.glob("{bin,lib}/**/*")
+  s.executables  = ['jivey']
+  s.require_path = 'lib'
+end

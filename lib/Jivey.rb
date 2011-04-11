@@ -20,7 +20,8 @@ class Jivey
     begin
       response = RestClient.get "http://#{username}:#{password}@#{url}/#{path}"
       log.debug("Response for get[#{path}]")
-      log.debug(response)
+      #log.debug(response)
+      log.debug("Test")
       doc = REXML::Document.new(response)
       yield doc
     rescue => e
@@ -290,7 +291,7 @@ class Jivey
         <communityID>#{community_id}</communityID>
     </createCommunityWatch>"
     
-    put( "rpc/rest/watchService/communityWatches", body ) do |doc| 
+    post( "rpc/rest/watchService/communityWatches", body ) do |doc| 
     end
   end
   
@@ -418,10 +419,11 @@ class Jivey
   end 
   
   def each_user_in_group( group_id )
+    puts "booyah"
     get("rpc/rest/groupService/groupMembers/#{group_id}") do |doc|
       doc.elements["/ns2:getGroupMembersResponse"].each() do |ele|
-        yield ele.elements['ID'].text, ele.elements['name'].text
-      end
+        yield ele.elements['ID'].text
+     end
     end
   end
   
